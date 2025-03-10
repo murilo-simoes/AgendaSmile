@@ -1,8 +1,11 @@
 package br.com.agendasmile.agenda.models;
+import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UuidGenerator;
@@ -20,7 +23,8 @@ import jakarta.persistence.Table;
 @Entity
 @DynamicUpdate(true)
 @Table(name = "users")
-public class User {
+public class User implements Serializable {
+	private static final Long serialVersionUUID = 1L;
 
     @Id
     @GeneratedValue(generator = "UUID")
@@ -35,22 +39,30 @@ public class User {
     private List<Appointment> appointments;
     
     @Column(nullable = false, length = 25)
+	@NotBlank()
     private String first_name;
     
     @Column(nullable = false, length = 100)
+	@NotBlank
     private String last_name;
     
     @Column(unique = true, nullable = false, length = 100)
+	@Email()
+	@NotBlank()
     private String email;
     
     @Column(nullable = false, length = 32)
+	@JsonProperty("password")
+	@NotBlank
     private String password;
     
     @CreationTimestamp
     @Column(updatable = false)
+	@JsonProperty("created_at")
     private Timestamp created_at;
     
     @Column(nullable = false, length = 20)
+	@JsonProperty("user_type")
     private String user_type;
 
     

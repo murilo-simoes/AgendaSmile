@@ -4,6 +4,8 @@ import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.UuidGenerator;
@@ -29,12 +31,14 @@ public class Office {
     
     @OneToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "id")
+	@Valid
     private User admin;
     
     @OneToMany(mappedBy = "office")
     private List<Appointment> appointments;
     
     @OneToMany(mappedBy = "office")
+	@Size(max = 50, min = 2)
     private List<Patient> patients;
     
     @Column(nullable = false, length = 100)
