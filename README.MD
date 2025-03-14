@@ -29,18 +29,16 @@ O front-end foi desenvolvido como uma interface simples, responsiva e fácil de 
 1. **Clone o repositório** para a sua máquina:
 
    ```bash
-   git clone <link-do-repositorio>
+   git clone https://github.com/murilo-simoes/AgendaSmile.git
    ```
 
 2. **Navegue até o diretório do projeto**:
 
    ```bash
-   cd AgendaSmile-backend
+   cd agendaApi
    ```
 
-3. **Crie o arquivo `.env`** com as variáveis de ambiente necessárias (se houver).
-
-4. **Execute o Docker Compose** para subir os containers do back-end:
+3. **Execute o Docker Compose** para subir os containers do back-end:
 
    ```bash
    docker-compose up --build
@@ -48,23 +46,17 @@ O front-end foi desenvolvido como uma interface simples, responsiva e fácil de 
 
    Isso criará os containers e inicializará o servidor do back-end.
 
-5. O back-end estará disponível na porta configurada (ex: `localhost:8080`).
+4. O back-end estará disponível na porta configurada (ex: `localhost:8080`).
 
 ## 4. Como Executar o Front-end
 
 1. **Clone o repositório** para a sua máquina:
 
    ```bash
-   git clone <link-do-repositorio>
+   git clone https://github.com/murilo-simoes/AgendaSmile.git
    ```
 
-2. **Navegue até o diretório do front-end**:
-
-   ```bash
-   cd AgendaSmile-frontend
-   ```
-
-3. **Abra o arquivo `index.html`** diretamente em seu navegador ou use uma ferramenta como o Live Server (VSCode) para testar a aplicação localmente.
+2. **Abra o arquivo `index.html`** diretamente em seu navegador ou use uma ferramenta como o Live Server (VSCode) para testar a aplicação localmente.
 
 ## 5. Testando
 
@@ -76,6 +68,3 @@ Atualmente, o back-end e o front-end não estão integrados. Para testar o MVP:
 ## 6. Próximos Passos
 
 - Integração do front-end com o back-end via chamadas API para permitir que os dados de cadastro e agendamento sejam enviados diretamente para o back-end.
-
-
-
