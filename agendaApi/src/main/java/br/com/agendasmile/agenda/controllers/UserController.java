@@ -1,8 +1,10 @@
 package br.com.agendasmile.agenda.controllers;
 
 import br.com.agendasmile.agenda.dto.CreateDentistDto;
+import br.com.agendasmile.agenda.dto.LoginUserDto;
 import br.com.agendasmile.agenda.exceptions.NotFoundException;
 import br.com.agendasmile.agenda.models.Office;
+import br.com.agendasmile.agenda.models.User;
 import br.com.agendasmile.agenda.services.OfficeService;
 import br.com.agendasmile.agenda.services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -35,5 +37,18 @@ public class UserController {
         } catch (NotFoundException e) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
+    }
+    
+    @PostMapping("/api/user/login")
+    public User loginUser(@Valid @RequestBody LoginUserDto user, HttpServletResponse response) throws Exception {
+    	try {
+    		User login_user = this.userService.loginUser(user);
+    		response.setStatus(HttpServletResponse.SC_CREATED);
+    		
+    		return login_user;
+    	}catch(NotFoundException e) {
+    		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+    	}
+		return null;
     }
 }

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <!--adciona os icones de usuario e senha-->
+
+    <title>AgendaSmile Login</title>
+  </head>
+  <body>
+    <main class="container">
+      <form>
+        <h1>Login</h1>
+        <div class="input-box">
+          <input placeholder="Email" type="email" required />
+          <!--cria um input do tipo email que autocompleta um email ja logado-->
+          <i class="bx bxs-user"></i>
+        </div>
+        <div class="input-box">
+          <input placeholder="Senha" type="password" required />
+          <i class="bx bxs-lock-alt"></i>
+        </div>
+        <div class="remember-forgot">
+          <label>
+            <input type="checkbox" />
+            Exibir senha
+          </label>
+        </div>
+        <div class="login-button">
+          <button><a href="#">Entrar</a></button>
+        </div>
+
+        <div class="register-link">
+          <p>Não tem uma conta?<a href="#"> Cadastre-se</a></p>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

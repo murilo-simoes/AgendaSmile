@@ -2,6 +2,7 @@ package br.com.agendasmile.agenda.models;
 import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -131,6 +132,23 @@ public class User implements Serializable {
 
 	public void setUser_type(String user_type) {
 		this.user_type = user_type;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(password);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		return Objects.equals(password, other.password);
 	}
 	
 }

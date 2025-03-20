@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="global.css">
-    <title>Consulta Médicos</title>
+    <link rel="stylesheet" href="../global.css">
+    <title>Cadastro Médico</title>
 </head>
-<body data-page="medicos">
+<body data-page="agendar">
     <nav id="sidebar">
         <div id="sidebar-content">
             <div id="user">
@@ -80,55 +80,46 @@
     </nav>
     
     <main>
-        <div class="content">
+        <h1>Novo cadastro:</h1>
+            <nav id="agende-uma-consulta">
+            <div class="add-medico">
+                <div class="input-box-add">
+                    <label for="iname" class="nome">Digite o nome do médico:</label><br>
+                    <div class="busca-container">
+                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                    </div>
+                </div>
+                <div class="input-box-add">
+                    <label for="iname" class="nome">Digite a Especialidade:</label><br>
+                    <div class="busca-container">
+                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                    </div>
+                </div>
 
-        <h1>Médicos</h1>
+            </div> 
 
-            <div class="busca-container">
-                <input type="text" class="busca-paciente" placeholder="Digite o nome do Médico ou CRM/CRO..." onkeyup="searchTable()">
-                <button class="busca-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                <button class="add-btn" onclick="window.location.href='cadastroMedico.html'">
-                    <i class="fa-solid fa-user-plus"></i>
-                </button>
+            <div class="add-medico">
+            <div class="input-box-add">
+                <label for="iname" class="nome">Digite o Telefone:</label><br>
+                <div class="busca-container">
+                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                </div>
+            </div>
+            <div class="input-box-add">
+                <label for="iname" class="nome">Digite o email:</label><br>
+                <div class="busca-container">
+                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                </div>
             </div>
             
-            <div class="table-container">
-                <table id="medicosTable">
-                    <thead>
-                        <tr>
-                            <th>CRM</th>
-                            <th>Nome</th>
-                            <th>Especialidade</th>
-                            <th>Telefone</th>
-                            <th>E-mail</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>12345</td>
-                            <td>Dr. João Silva</td>
-                            <td>Cardiologia</td>
-                            <td>(11) 98765-4321</td>
-                            <td>joao.silva@email.com</td>
-                        </tr>
-                        <tr>
-                            <td>67890</td>
-                            <td>Dra. Maria Oliveira</td>
-                            <td>Dermatologia</td>
-                            <td>(11) 91234-5678</td>
-                            <td>maria.oliveira@email.com</td>
-                        </tr>
-                        <tr>
-                            <td>54321</td>
-                            <td>Dr. Carlos Souza</td>
-                            <td>Ortopedia</td>
-                            <td>(11) 92345-6789</td>
-                            <td>carlos.souza@email.com</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
         </div>
+        <button class="cadastrar-btn ">CADASTRAR</button>
+
+            <div class="lista" id="lista">
+                
+            </div>
+
+    
     </main>
     
     <script src="/script.js"> </script>
