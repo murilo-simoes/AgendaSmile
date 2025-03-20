@@ -25,4 +25,4 @@ public class OfficeController {
         User officeOwner = this.userService.createAdminUser(office.getAdmin());
         Office officeCreated = this.officeService.createOffice(office);
     }
-        }
+}

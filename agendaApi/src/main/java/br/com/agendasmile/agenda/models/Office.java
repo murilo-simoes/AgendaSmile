@@ -1,14 +1,13 @@
 package br.com.agendasmile.agenda.models;
 
+import java.sql.SQLType;
 import java.sql.Timestamp;
 import java.util.List;
 import java.util.UUID;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Size;
-import org.hibernate.annotations.CreationTimestamp;
-import org.hibernate.annotations.DynamicUpdate;
-import org.hibernate.annotations.UuidGenerator;
+import org.hibernate.annotations.*;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -18,6 +17,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @DynamicUpdate(true)
@@ -26,6 +26,7 @@ public class Office {
 	
     @Id
     @GeneratedValue(generator = "UUID")
+	@JdbcTypeCode(SqlTypes.VARCHAR)
     @UuidGenerator
     private UUID id;
     

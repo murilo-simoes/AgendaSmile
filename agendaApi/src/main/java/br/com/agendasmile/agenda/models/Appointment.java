@@ -3,8 +3,11 @@ package br.com.agendasmile.agenda.models;
 import java.sql.Timestamp;
 import java.util.UUID;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.Column;
@@ -14,6 +17,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @DynamicUpdate(true)
@@ -22,6 +26,7 @@ public class Appointment {
 	
 	@Id
     @GeneratedValue(generator = "UUID")
+	@JdbcTypeCode(SqlTypes.VARCHAR)
     @UuidGenerator
     private UUID id;
 	
@@ -38,12 +43,17 @@ public class Appointment {
     private Patient patient;
 	
 	@Column(nullable = false, length = 50)
+	@Size(min = 2, max = 50)
+	@NotBlank
 	private String title;
 	
 	@Column(nullable = true, length = 255)
+	@Size(min = 2, max = 255)
 	private String description;
 	
 	@Column(nullable = false, length = 50)
+	@Size(min = 1, max = 50)
+	@NotBlank
 	private String appointment_type;
 	
 	@Column(nullable = false)
@@ -135,6 +145,4 @@ public class Appointment {
 	public void setCreated_at(Timestamp created_at) {
 		this.created_at = created_at;
 	}
-    
-    
 }

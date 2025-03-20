@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UuidGenerator;
 
 import jakarta.persistence.CascadeType;
@@ -19,6 +20,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import org.hibernate.type.SqlTypes;
 
 @Entity
 @DynamicUpdate(true)
@@ -28,6 +30,7 @@ public class User implements Serializable {
 
     @Id
     @GeneratedValue(generator = "UUID")
+	@JdbcTypeCode(SqlTypes.VARCHAR)
     @UuidGenerator
     private UUID id;
     
