@@ -39,6 +39,7 @@ public class UserService {
         user.setUser_type("dentist");
         user.setEmail(dentistDto.getEmail());
         user.setPassword(dentistDto.getPassword());
+        user.setOffice(office);
 
         this.repository.save(user);
     }
