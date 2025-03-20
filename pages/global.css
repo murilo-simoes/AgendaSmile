@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #d0e0eb;
+}
+
+main {
+    padding: 8%;
+}
+#sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #ffffff;
+    height: 100vh;
+    border-radius: 0px 18px 18px 0px;
+    position: relative;
+    transition: all .5s;
+    min-width: 82px;
+    z-index: 2;
+}
+
+#sidebar-content{
+    padding: 12px;
+}
+
+#user{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+
+#user-avatar{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#user-infos{
+    display: flex;
+    flex-direction: column;
+}
+#user-infos span:last-child{
+    color: #6b6b6b;
+    font-size: 12px;
+}
+
+#side-items{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    list-style: none;
+}
+.side-item{
+    border-radius: 8px;
+    padding: 14px; 
+    cursor: pointer;
+}
+.side-item.active {
+    background-color: #49708a; ;
+
+}
+.side-item:hover:not(.active),
+ #logout-btn:hover {
+    background-color: #d0e0eb;
+}
+
+.side-item a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0a0a0a;
+}
+
+.side-item.active a{
+    color: #d0e0eb;
+}
+
+.side-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+#logout {
+    border-top: 1px solid #d0e0eb;
+    padding: 12px;
+}
+
+#logout-btn{
+    border: none;
+    padding: 12px;
+    font-size: 14px;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 8px;
+    text-align: start;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+#open-btn {
+    position: absolute;
+    top: 30px;
+    right: -10px;
+    background-color: #caff42;
+    color: #d0e0eb;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#open-btn-icon {
+    transition: transform .3s ease;
+
+}
+
+.open-sidebar #open-btn-icon {
+    transform: rotate(180deg);
+}
+
+.item-description {
+    width: 0px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 14px;
+    transition: width .6s;
+    height: 0px;
+}
+
+#sidebar.open-sidebar{
+    min-width: 15%;
+}
+
+#sidebar.open-sidebar .item-description{
+    width: 150px;
+    height: auto;
+}
+
+#sidebar.open-sidebar .side-item a{
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+
+.form{
+    padding: 1rem;
+}
+.busca-paciente{
+    width: 70%;
+}
+.input-box {
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+
+}
+
+.input-box input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #caff42;
+}
+
+.input-box label{
+    font-size: 16px;
+}
+.lista-box{
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+}
+.lista-box select{
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #caff42;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.table-container {
+    width: 100%;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #f8f9fa;
+    color: #333;
+    font-weight: 600;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px 0 0 10px; /* Bordas arredondadas apenas no lado esquerdo */
+    font-size: 16px;
+    outline: none;
+}
+
+.search-button {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+}
+
+.search-button:hover {
+    background-color: #e9ecef;
+    transition: 0.3s;
+}
+
+.search-button i {
+    font-size: 16px;
+    color: #333;
+}
+
+.busca-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.busca-container input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Arredondando apenas o lado esquerdo */
+    font-size: 16px;
+    outline: none;
+    height: 40px;
+}
+
+.busca-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px; /* Arredondando apenas o lado direito */
+    background-color: #49708a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px; /* Para alinhar melhor com o input */
+    color: white;
+}
+
+.add-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px; /* Arredondando apenas o lado direito */
+    background-color: #49708a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px; /* Para alinhar melhor com o input */
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #caff42;
+    transition: 0.5s;
+}
+
+.busca-btn:hover {
+    background-color: #caff42;
+    transition: 0.5s;
+}
+
+.add-medico{
+    display: flex;
+}
+
+.input-box-add {
+    flex-direction: column;
+    margin-bottom: 1.1rem;
+    padding-right: 3rem;
+}
+
+.input-box-add input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #caff42;
+}
+
+.input-box-add label{
+    font-size: 16px;
+}
+
+.cadastrar-btn {
+    padding: 12px 15px;
+    border: none;
+    border-radius: 10px; /* Arredondando apenas o lado direito */
+    background-color: #49708a;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 42px; /* Para alinhar melhor com o input */
+    color: white;
+}
+
+.cadastrar-btn:hover {
+    background-color: #caff42;
+    transition: 0.5s;
+}
