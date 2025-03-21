@@ -80,49 +80,47 @@
     </nav>
     
     <main>
-        <h1>Novo cadastro:</h1>
-            <nav id="agende-uma-consulta">
+        <form id="create-dentist-form">
+            <h1>Novo cadastro:</h1>
             <div class="add-medico">
                 <div class="input-box-add">
-                    <label for="iname" class="nome">Digite o nome do médico:</label><br>
+                    <label for="iname" class="nome">Digite o nome:</label><br>
                     <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                        <input type="text" name="first_name" class="busca-paciente" id="iname">
                     </div>
                 </div>
                 <div class="input-box-add">
-                    <label for="iname" class="nome">Digite a Especialidade:</label><br>
+                    <label for="iname" class="nome">Digite o sobrenome:</label><br>
                     <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                        <input type="text" name="last_name" class="busca-paciente" id="iname">
                     </div>
                 </div>
 
             </div> 
 
             <div class="add-medico">
-            <div class="input-box-add">
-                <label for="iname" class="nome">Digite o Telefone:</label><br>
-                <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                <div class="input-box-add">
+                    <label for="iname" class="nome">Digite o email:</label><br>
+                    <div class="busca-container">
+                        <input type="text" name="email" class="busca-paciente" id="iname">
+                    </div>
                 </div>
-            </div>
-            <div class="input-box-add">
-                <label for="iname" class="nome">Digite o email:</label><br>
-                <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                <div class="input-box-add">
+                    <label for="iname" class="nome">Digite a senha:</label><br>
+                    <div class="busca-container">
+                        <input type="text" name="password" class="busca-paciente" id="iname">
+                    </div>
                 </div>
-            </div>
-            
-        </div>
-        <button class="cadastrar-btn ">CADASTRAR</button>
-
-            <div class="lista" id="lista">
                 
             </div>
-
+            <button class="cadastrar-btn ">CADASTRAR</button>
+        </form>
     
     </main>
     
     <script src="../../index.js"></script>
     <script src="../../lib/functions.js"> </script>
+
+    <script src="./cadastroMedico.js"></script>
 </body>
 </html>
