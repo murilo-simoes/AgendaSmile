@@ -1,5 +1,5 @@
 function verificaSessao() {
-  const user = localStorage.getItem("user");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   if (!user) {
     window.location = "/pages/login/index.html";
@@ -60,8 +60,6 @@ async function criarAgendamento() {
     .catch(() => {
       alert("Erro ao criar o agendamento.");
     });
-
-  console.log(body);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -152,4 +150,13 @@ function addOneHourToDate(dateString) {
   return formattedDateWithAddedHour;
 }
 
+function nomeMenu() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (user) {
+    document.getElementById("name_menu").innerText = user.first_name;
+    document.getElementById("last_name_menu").innerText = user.last_name;
+  }
+}
+nomeMenu();
 verificaSessao();

@@ -64,4 +64,14 @@ function formatTimestampToTime(timestamp) {
   return `${hours}:${minutes}:${seconds}`;
 }
 
+function nomeMenu() {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (user) {
+    document.getElementById("name_menu").innerText = user.first_name;
+    document.getElementById("last_name_menu").innerText = user.last_name;
+  }
+}
+nomeMenu();
+
 carregarAgendamentos();
