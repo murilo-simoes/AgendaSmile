@@ -10,7 +10,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="../global.css" />
+    <link rel="stylesheet" href="../../global.css" />
     <title>Agendamentos</title>
   </head>
   <body data-page="medicos">
@@ -31,7 +31,7 @@
 
         <ul id="side-items">
           <li class="side-item active">
-            <a href="../index.html">
+            <a href="../../index.html">
               <i class="fa-solid fa-calendar-days"></i>
               <span class="item-description"> Agendar uma consulta </span>
             </a>
@@ -52,7 +52,7 @@
           </li>
 
           <li class="side-item">
-            <a href="../agendamentos/agendamentos.html">
+            <a href="agendamentos.html">
               <i class="fa-solid fa-calendar-check"></i>
               <span class="item-description"> Meus agendamentos </span>
             </a>
@@ -64,7 +64,7 @@
       </div>
 
       <div id="logout">
-        <button id="logout-btn">
+        <button id="logout-btn" onclick="deslogar()">
           <i class="fa-solid fa-right-from-bracket"></i>
           <span class="item-description"> Logout </span>
         </button>
@@ -120,6 +120,7 @@
       </div>
     </main>
 
-    <script src="../index.js"></script>
+    <script src="../../index.js"></script>
+    <script src="../../lib/functions.js"></script>
   </body>
 </html>

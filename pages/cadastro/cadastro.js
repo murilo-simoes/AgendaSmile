@@ -1,3 +1,11 @@
+function verificaSessaoLogada() {
+  const user = localStorage.getItem("user");
+
+  if (user) {
+    window.location.href = "../../index.html";
+  }
+}
+
 async function cadastrar() {
   const firstname = document.getElementById("firstname").value;
   const lastname = document.getElementById("lastname").value;
@@ -36,21 +44,23 @@ async function cadastrar() {
     return;
   }
 
+  const body = {
+    name: office.trim(),
+    admin: {
+      first_name: firstname.trim(),
+      last_name: lastname.trim(),
+      email: email.trim(),
+      password: password.trim(),
+    },
+  };
+
   try {
     await fetch("http://localhost:8080/api/office", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name: office,
-        admin: {
-          first_name: firstname,
-          last_name: lastname,
-          email: email,
-          password: password,
-        },
-      }),
+      body: JSON.stringify(body),
     });
     alert("Usuário criado com sucesso!");
 
@@ -60,7 +70,4 @@ async function cadastrar() {
   }
 }
 
-function validateEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(String(email).toLowerCase());
-}
+verificaSessaoLogada();
