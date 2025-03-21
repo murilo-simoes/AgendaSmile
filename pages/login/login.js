@@ -38,7 +38,7 @@ async function login() {
 
     alert("Login realizado com sucesso.");
 
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(user));
 
     window.location = "../../index.html";
 
