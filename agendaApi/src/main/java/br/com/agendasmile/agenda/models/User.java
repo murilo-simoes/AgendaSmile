@@ -6,21 +6,13 @@ import java.util.Objects;
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UuidGenerator;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 import org.hibernate.type.SqlTypes;
 
 @Entity
@@ -35,8 +27,8 @@ public class User implements Serializable {
     @UuidGenerator
     private UUID id;
     
-    @OneToOne(cascade = CascadeType.ALL) 
-    @JoinColumn(name = "office_id", referencedColumnName = "id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "office_id", referencedColumnName = "id", unique = false)
     private Office office;
     
     @OneToMany(mappedBy = "user")

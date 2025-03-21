@@ -1,5 +1,7 @@
 package br.com.agendasmile.agenda.controllers;
 
+import br.com.agendasmile.agenda.dto.CreateAdminDto;
+import br.com.agendasmile.agenda.dto.CreateOfficeDto;
 import br.com.agendasmile.agenda.models.Office;
 import br.com.agendasmile.agenda.models.User;
 import br.com.agendasmile.agenda.services.OfficeService;
@@ -21,8 +23,10 @@ public class OfficeController {
     private UserService userService;
 
     @PostMapping(path = "/api/office")
-    public void store(@Valid @RequestBody Office office, HttpServletResponse response) {
-        User officeOwner = this.userService.createAdminUser(office.getAdmin());
-        Office officeCreated = this.officeService.createOffice(office);
+    public void store(@Valid @RequestBody CreateOfficeDto officeDto) {
+        Office officeCreated = this.officeService.createOffice(officeDto);
+        User adminUserCreated = this.userService.createAdminUser(officeDto.getAdmin(), officeCreated);
+
+        this.officeService.setOfficeOwner(adminUserCreated.getId().toString(), officeCreated.getId().toString());
     }
 }
