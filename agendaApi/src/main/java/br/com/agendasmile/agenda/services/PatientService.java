@@ -51,4 +51,14 @@ public class PatientService {
 
          return result.get();
     }
+    
+    public Patient findByEmail(String email) throws NotFoundException {
+        Patient result = this.repository.findByEmail(email);
+
+        if (result == null) {
+            throw new NotFoundException("User not found");
+        }
+
+        return result;
+   }
 }

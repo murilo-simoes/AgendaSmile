@@ -84,10 +84,10 @@
             <nav id="agende-uma-consulta">
             <div class="form">
                 <div class="input-box">
-                    <label for="iname" class="nome">Digite o nome do paciente:</label><br>
+                    <label for="iname" class="nome">Digite o email do paciente:</label><br>
                     <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="iname">
-                        <button class="busca-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        <input type="text" name="nome" class="busca-paciente" id="email">
+                        <!-- <button class="busca-btn"><i class="fa-solid fa-magnifying-glass"></i></button>  -->
                         <button class="add-btn" onclick="window.location.href='./pages/pacientes/cadastroPaciente.html'">
                             <i class="fa-solid fa-user-plus"></i>
                         </button>
@@ -98,12 +98,8 @@
                     <input type="date" class="date" id="idate">
                 </div>
                 <div class="input-box">
-                    <label for="hora">Selecione o horário de início:</label><br>
-                    <input type="time" name="hora" id="ihora"><br>
-                </div>
-                <div class="input-box">
-                    <label for="hora">Selecione o horário de início:</label><br>
-                    <input type="time" name="hora" id="ihora"><br>
+                    <label for="hora">Selecione o horário da consulta:</label><br>
+                    <input type="time" name="hora" id="hora_consulta"><br>
                 </div>
                 <div class="lista-box">
                     <label>Selecione o procedimento a ser realizado: </label><br>
@@ -130,13 +126,13 @@
                 
                 
             </div> 
-            <button class="cadastrar-btn ">AGENDAR</button>
+            <button class="cadastrar-btn" onclick="criarAgendamento()">AGENDAR</button>
         
 
     
     </main>
     
-    <script src="index.js"> </script>
+    <script src="index.js"></script>
     <script src="./lib/functions.js"> </script>
     
 </body>

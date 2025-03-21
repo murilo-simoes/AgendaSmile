@@ -13,6 +13,10 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 @Service
 public class AppointmentService {
@@ -45,5 +49,13 @@ public class AppointmentService {
         appointment.setEnd_time(endDateTime);
 
         this.repository.save(appointment);
+    }
+    
+    public List<Appointment> getAllAppointments(String officeId) {
+    	 Iterable<Appointment> iterable = this.repository.findAllByOfficeId(UUID.fromString(officeId));
+    	 List<Appointment> appointments = StreamSupport
+    	        .stream(iterable.spliterator(), false)
+    	        .collect(Collectors.toList());
+    	    return appointments;
     }
 }

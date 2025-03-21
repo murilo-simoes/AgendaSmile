@@ -26,6 +26,8 @@ import org.hibernate.type.SqlTypes;
 import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "patient")
 public class Patient implements Serializable {
@@ -42,6 +44,7 @@ public class Patient implements Serializable {
     @JoinColumn(name = "office_id", referencedColumnName = "id")
     private Office office;
 
+    @JsonIgnore // Impede a serialização recursiva
     @OneToMany(mappedBy = "patient")
     private List<Appointment> appointments;
     

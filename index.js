@@ -6,6 +6,64 @@ function verificaSessao() {
   }
 }
 
+async function criarAgendamento() {
+  let user = JSON.parse(localStorage.getItem("user"));
+
+  const email_paciente = document.getElementById("email").value;
+  const data_consulta = document.getElementById("idate").value;
+  const hora_consulta = document.getElementById("hora_consulta").value;
+  const procedimento = document.getElementById("procedimento").value;
+
+  if (
+    email_paciente === "" ||
+    data_consulta === "" ||
+    hora_consulta === "" ||
+    procedimento === ""
+  ) {
+    alert("Preencha todos os campos corretamente.");
+    return;
+  }
+
+  if (!validateEmail(email_paciente)) {
+    alert("Email inválido!");
+    return;
+  }
+
+  const data_consulta_inicio = formatDateWithTime(data_consulta);
+  const data_consulta_fim = addOneHourToDate(data_consulta);
+
+  const body = {
+    title: "Agendamento",
+    description: "Sem detalhes",
+    type: procedimento.trim(),
+    start_datetime: data_consulta_inicio,
+    end_datetime: data_consulta_fim,
+  };
+
+  await fetch(
+    `http://localhost:8080/api/appointment/doctor/${user.id}/patient/${email_paciente}`,
+    {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    }
+  )
+    .then((res) => {
+      if (res.status === 200) {
+        alert("Agendamento criado com sucesso!");
+      } else {
+        alert("Erro ao criar o agendamento.");
+      }
+    })
+    .catch(() => {
+      alert("Erro ao criar o agendamento.");
+    });
+
+  console.log(body);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const page = document.body.getAttribute("data-page");
   const sideItems = document.querySelectorAll(".side-item");
@@ -60,5 +118,38 @@ document.addEventListener("DOMContentLoaded", function () {
     inputData.setAttribute("max", dataLimiteString);
   }
 });
+
+function formatDateWithTime(dateString) {
+  const date = new Date(dateString);
+
+  const formattedDate =
+    `${date.getFullYear()}-${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")} ` +
+    `${date.getHours().toString().padStart(2, "0")}:${date
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:${date.getSeconds().toString().padStart(2, "0")}` +
+    `.000000`;
+
+  return formattedDate;
+}
+
+function addOneHourToDate(dateString) {
+  const date = new Date(dateString);
+  date.setHours(date.getHours() + 1);
+
+  const formattedDateWithAddedHour =
+    `${date.getFullYear()}-${(date.getMonth() + 1)
+      .toString()
+      .padStart(2, "0")}-${date.getDate().toString().padStart(2, "0")} ` +
+    `${date.getHours().toString().padStart(2, "0")}:${date
+      .getMinutes()
+      .toString()
+      .padStart(2, "0")}:${date.getSeconds().toString().padStart(2, "0")}` +
+    `.000000`;
+
+  return formattedDateWithAddedHour;
+}
 
 verificaSessao();

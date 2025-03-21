@@ -8,8 +8,7 @@ async function cadastrarPaciente() {
   const cpf = document.getElementById("cpf").value;
   const numero = document.getElementById("numero").value;
   const genero = document.getElementById("genero").value;
-  console.log(data);
-  return;
+
   if (
     nome === "" ||
     sobrenome === "" ||
@@ -27,7 +26,11 @@ async function cadastrarPaciente() {
     first_name: nome.trim(),
     last_name: sobrenome.trim(),
     cpf: cpf.trim(),
-    birth_date: birth_date.trim(),
+    birth_date: data.trim(),
+    gender: genero.trim(),
+    phone_number: numero.trim(),
+    email: email.trim(),
+    obs: "Sem observações",
   };
 
   try {
@@ -36,8 +39,20 @@ async function cadastrarPaciente() {
       headers: {
         "Content-Type": "application/json",
       },
-      body: body,
-    });
+      body: JSON.stringify(body),
+    })
+      .then((response) => {
+        if (response.status === 200) {
+          alert("Paciente criado com sucesso!");
+        } else {
+          alert("Erro ao criar o paciente.");
+        }
+      })
+      .catch((err) => {
+        alert("Erro ao criar o paciente.");
+      });
+
+    window.location = "../../index.html";
   } catch (err) {
     alert("Não foi possivel incluir um novo paciente.");
   }
