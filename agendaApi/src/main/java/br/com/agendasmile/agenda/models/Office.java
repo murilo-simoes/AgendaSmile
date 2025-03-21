@@ -19,6 +19,8 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import org.hibernate.type.SqlTypes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @DynamicUpdate(true)
 @Table(name = "office")
@@ -33,10 +35,12 @@ public class Office {
     @OneToOne
     @JoinColumn(name = "admin_id", referencedColumnName = "id")
 	@Valid
+	@JsonIgnore // Impede a serialização recursiva
     private User admin;
     
     @OneToMany(mappedBy = "office")
     private List<Appointment> appointments;
+    
     
     @OneToMany(mappedBy = "office")
 	@Size(max = 50, min = 2)

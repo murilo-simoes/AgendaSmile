@@ -4,7 +4,8 @@ import br.com.agendasmile.agenda.dto.CreatePatientDto;
 import br.com.agendasmile.agenda.exceptions.NotFoundException;
 import br.com.agendasmile.agenda.models.Office;
 import br.com.agendasmile.agenda.models.Patient;
-import br.com.agendasmile.agenda.repositories.PatienceRepository;
+import br.com.agendasmile.agenda.repositories.PatientRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +17,7 @@ import java.util.UUID;
 public class PatientService {
 
     @Autowired
-    private PatienceRepository repository;
+    private PatientRepository repository;
 
     public Patient create(CreatePatientDto patientDto, Office office) {
         Patient patient = new Patient();

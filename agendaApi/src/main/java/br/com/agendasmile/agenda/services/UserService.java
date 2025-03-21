@@ -56,7 +56,6 @@ public class UserService {
     	}
     	
     	User result = this.repository.findByEmail(email);
-    	System.out.println(email);
     	if(result != null) {
     		return true;
     	}else {

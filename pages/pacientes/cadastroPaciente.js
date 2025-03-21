@@ -1,8 +1,5 @@
 async function cadastrarPaciente() {
-  const user = localStorage.getItem("user");
-
-  console.log(user.office_id);
-  return;
+  const user = JSON.parse(localStorage.getItem("user"));
 
   const nome = document.getElementById("nome").value;
   const sobrenome = document.getElementById("sobrenome").value;
@@ -11,7 +8,8 @@ async function cadastrarPaciente() {
   const cpf = document.getElementById("cpf").value;
   const numero = document.getElementById("numero").value;
   const genero = document.getElementById("genero").value;
-
+  console.log(data);
+  return;
   if (
     nome === "" ||
     sobrenome === "" ||
@@ -25,8 +23,21 @@ async function cadastrarPaciente() {
     return;
   }
 
+  const body = {
+    first_name: nome.trim(),
+    last_name: sobrenome.trim(),
+    cpf: cpf.trim(),
+    birth_date: birth_date.trim(),
+  };
+
   try {
-    await fetch(`http://localhost:8080/api/office/${user.office_id}/patient`);
+    await fetch(`http://localhost:8080/api/office/${user.office.id}/patient`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body,
+    });
   } catch (err) {
     alert("Não foi possivel incluir um novo paciente.");
   }
