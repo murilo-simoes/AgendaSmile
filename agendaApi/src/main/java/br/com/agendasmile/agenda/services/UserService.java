@@ -1,5 +1,6 @@
 package br.com.agendasmile.agenda.services;
 
+import br.com.agendasmile.agenda.dto.CreateAdminDto;
 import br.com.agendasmile.agenda.dto.CreateDentistDto;
 import br.com.agendasmile.agenda.dto.ListDentistDto;
 import br.com.agendasmile.agenda.dto.LoginUserDto;
@@ -16,8 +17,16 @@ public class UserService {
     @Autowired
     private UserRepository repository;
 
-    public User createAdminUser(User user) {
+    public User createAdminUser(CreateAdminDto adminDto, Office office) {
+        User user = new User();
+
+        user.setFirst_name(adminDto.getFirstName());
+        user.setLast_name(adminDto.getLastName());
+        user.setEmail(adminDto.getEmail());
+        user.setPassword(adminDto.getPassword());
+        user.setOffice(office);
         user.setUser_type("admin");
+
         return this.repository.save(user);
     }
     
