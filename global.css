@@ -14,7 +14,9 @@ body {
 }
 
 main {
-  padding: 8%;
+  padding-left: 8%;
+  padding-right: 8%;
+  padding-top: 8%;
 }
 #sidebar {
   display: flex;
@@ -158,9 +160,6 @@ main {
   gap: 14px;
 }
 
-.form {
-  padding: 1rem;
-}
 .busca-paciente {
   width: 70%;
 }

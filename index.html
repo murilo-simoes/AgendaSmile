@@ -88,7 +88,7 @@
                     <div class="busca-container">
                         <input type="text" name="nome" class="busca-paciente" id="iname">
                         <button class="busca-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-                        <button class="add-btn" onclick="window.location.href='cadastroPaciente.html'">
+                        <button class="add-btn" onclick="window.location.href='./pages/pacientes/cadastroPaciente.html'">
                             <i class="fa-solid fa-user-plus"></i>
                         </button>
                     </div>
@@ -98,32 +98,40 @@
                     <input type="date" class="date" id="idate">
                 </div>
                 <div class="input-box">
-                    <label for="hora">Selecione o horário:</label><br>
+                    <label for="hora">Selecione o horário de início:</label><br>
                     <input type="time" name="hora" id="ihora"><br>
                 </div>
-                <div class="lista-box">
-                    <label>Médico: </label><br>
-                    <select name="nome_medico" id="id_medico">
-                        <option value=" "> </option>
-                        <option value=" "> </option>
-                        <option value=" "> </option>
-                    </select>
+                <div class="input-box">
+                    <label for="hora">Selecione o horário de início:</label><br>
+                    <input type="time" name="hora" id="ihora"><br>
                 </div>
                 <div class="lista-box">
                     <label>Selecione o procedimento a ser realizado: </label><br>
                     <select name="procedimento" id="procedimento"> 
-                        <option value="canal">Canal</option>
-                        <option value="avaliacao">Avaliação</option>
-                        <option value="implante">Implante</option>
+                        <option value="Limpeza Dentária (Profilaxia)">Limpeza Dentária (Profilaxia)</option>
+                        <option value="Restaurações Dentárias (Obturações)">Restaurações Dentárias (Obturações)</option>
+                        <option value="Clareamento Dental">Clareamento Dental</option>
+                        <option value="Extração de Dentes">Extração de Dentes</option>
+                        <option value="Tratamento de Canal (Endodontia)">Tratamento de Canal (Endodontia)</option>
+                        <option value="Implantes Dentários">Implantes Dentários</option>
+                        <option value="Coroas Dentárias">Coroas Dentárias</option>
+                        <option value="Pontes Dentárias">Pontes Dentárias</option>
+                        <option value="Facetas Dentárias">Facetas Dentárias</option>
+                        <option value="Aparelho Ortodôntico (Bráquetes)">Aparelho Ortodôntico (Bráquetes)</option>
+                        <option value="Cirurgia Gengival">Cirurgia Gengival</option>
+                        <option value="Enxertos Ósseos">Enxertos Ósseos</option>
+                        <option value="Bichectomia">Bichectomia</option>
+                        <option value="Selantes Dentários">Selantes Dentários</option>
+                        <option value="Aplicação de Flúor">Aplicação de Flúor</option>
+                        <option value="Tratamento de Doenças Periodontais">Tratamento de Doenças Periodontais</option>
+                        <option value="Outro">Outro</option>
                     </select>
                 </div>
                 
                 
             </div> 
             <button class="cadastrar-btn ">AGENDAR</button>
-            <div class="lista" id="lista">
-                
-            </div>
+        
 
     
     </main>

@@ -86,19 +86,19 @@
                 <div class="input-box-add">
                     <label for="iname" class="nome">Nome:</label><br>
                     <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                        <input type="text" name="nome" class="busca-paciente" id="nome">
                     </div>
                 </div>
                 <div class="input-box-add">
                     <label for="iname" class="nome">Sobrenome:</label><br>
                     <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="iname">
+                        <input type="text" name="nome" class="busca-paciente" id="sobrenome">
                     </div>
                 </div>
                 <div class="input-box-add">
                     <label for="iname" class="nome">Digite o CPF:</label><br>
                     <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                    <input type="text" name="nome" placeholder="Apenas digitos" class="busca-paciente" id="cpf">
                 </div>
             </div>
 
@@ -110,32 +110,32 @@
             <div class="input-box-add">
                 <div class="input-box">
                     <label for="idate">Data de nascimento:</label><br>
-                    <input type="date" class="date" id="idate">
+                    <input type="date" class="date" id="data">
                 </div>
             </div>
                 <div class="input-box-add">
                 <label for="iname" class="nome">Celular:</label><br>
                 <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                    <input type="text" name="nome" placeholder="DDD + Numero sem separação" class="busca-paciente" id="numero">
                 </div>
             </div>
             <div class="input-box-add">
                 <label for="iname" class="nome">Digite o email:</label><br>
                 <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="iname">
+                    <input type="text" name="nome" class="busca-paciente" id="email">
                 </div>
             </div>
                 <div class="lista-box">
                     <label>Genero: </label><br>
-                    <select name="nome_medico" id="id_medico">
-                        <option value=" ">           </option>
-                        <option value=" "> Masculino </option>
-                        <option value=" "> Feminino </option>
+                    <select name="genero" id="genero">
+                        <option value="0">           </option>
+                        <option value="1"> Masculino </option>
+                        <option value="2"> Feminino </option>
                     </select>
                 </div>
 
         </div>
-        <button class="cadastrar-btn ">CADASTRAR</button>
+        <button class="cadastrar-btn " onclick="cadastrarPaciente()">CADASTRAR</button>
 
             <div class="lista" id="lista">
 
@@ -146,5 +146,6 @@
 
     <script src="../../index.js"></script>
     <script src="../../lib/functions.js"> </script>
+    <script src="cadastroPaciente.js"> </script>
 </body>
 </html>

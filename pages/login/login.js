@@ -6,6 +6,13 @@ function verificaSessaoLogada() {
   }
 }
 
+function exibirSenha() {
+  const exibir_senha = document.getElementById("exibir_senha").checked;
+  const password = document.getElementById("password");
+
+  password.type = exibir_senha ? "text" : "password";
+}
+
 async function login() {
   const email = document.getElementById("email").value;
   const password = document.getElementById("password").value;
