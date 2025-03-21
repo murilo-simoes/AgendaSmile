@@ -9,7 +9,7 @@ async function carregarAgendamentos() {
   );
 
   const appointments = await response.json();
-  console.log(appointments);
+
   let table = '<table id="medicosTable">';
   table += `
   <thead>
@@ -23,29 +23,26 @@ async function carregarAgendamentos() {
                 <th>Horário de Fim</th>
               </tr>
             </thead>
+            <tbody>
   `;
 
   appointments.forEach((element, index) => {
     table = table + `<tr>`;
-    table = table + `<td>${user.office.id}</td>`;
+    table = table + `<td>${element.office.name}</td>`;
     table =
       table +
-      `<td>Title: ${
-        appointments.patient.first_name + " " + appointments.patient.last_name
+      `<td>${
+        element.patient.first_name + " " + element.patient.last_name
       }</td>`;
-    table = table + `<td>Title: ${appointments.appointment_type}</td>`;
-    table = table + `<td>Title: ${appointments.user.first_name}</td>`;
-    table =
-      table +
-      `<td>Title: ${formatTimestampToDate(appointments.start_time)}</td>`;
-    table + `<td>Title: ${formatTimestampToTime(appointments.start_time)}</td>`;
-    table + `<td>Title: ${formatTimestampToTime(appointments.end_time)}</td>`;
+    table = table + `<td>${element.appointment_type}</td>`;
+    table = table + `<td>${element.user.first_name}</td>`;
+    table = table + `<td>${formatTimestampToDate(element.start_time)}</td>`;
+    table = table + `<td>${formatTimestampToTime(element.start_time)}</td>`;
+    table = table + `<td>${formatTimestampToTime(element.end_time)}</td>`;
     table += `</tr>`;
   });
-  table += "</table>";
-
+  table += "</tbody></table>";
   document.getElementById("table-container").innerHTML = table;
-  console.log(await appointments.json());
 }
 
 function formatTimestampToDate(timestamp) {
