@@ -12,13 +12,13 @@
         <img src="../../assets/images/undraw_date-picker_qe47.svg" alt="" />
       </div>
       <div class="form">
-        <form action="#">
+        <div>
           <div class="form-header">
             <div class="tittle">
               <h1>Cadastre-se</h1>
             </div>
             <div class="login-button">
-              <button><a href="#">Entrar</a></button>
+              <button><a href="../login/index.html">Entrar</a></button>
             </div>
           </div>
 
@@ -66,7 +66,7 @@
             <div class="input-box">
               <label for="password">Confirme sua senha</label>
               <input
-                id="password"
+                id="confirmpassword"
                 type="password"
                 name="confirmpassword"
                 placeholder="Confirme sua senha"
@@ -85,10 +85,12 @@
             </div>
           </div>
           <div class="continue-button">
-            <button><a href="#">Continuar</a></button>
+            <button onclick="cadastrar()">Cadastrar</button>
           </div>
-        </form>
+        </div>
       </div>
     </div>
   </body>
+
+  <script src="cadastro.js"></script>
 </html>

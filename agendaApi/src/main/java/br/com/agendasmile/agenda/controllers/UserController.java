@@ -43,12 +43,19 @@ public class UserController {
     public User loginUser(@Valid @RequestBody LoginUserDto user, HttpServletResponse response) throws Exception {
     	try {
     		User login_user = this.userService.loginUser(user);
-    		response.setStatus(HttpServletResponse.SC_CREATED);
     		
     		return login_user;
     	}catch(NotFoundException e) {
     		response.setStatus(HttpServletResponse.SC_NOT_FOUND);
     	}
 		return null;
+    }
+    
+    @PostMapping("/api/user/{email}")
+    public boolean existUser(@PathVariable String email, HttpServletResponse response) throws Exception {
+    	boolean email_founded = this.userService.findByEmail(email);
+    		
+    	return email_founded;
+
     }
 }

@@ -40,6 +40,22 @@ public class UserService {
     	
     	return result;
     }
+    
+    public boolean findByEmail(String email) throws Exception {
+    	
+    	if(email == null) {
+    		throw new Exception("Preencha o email corretamente!");
+    	}
+    	
+    	User result = this.repository.findByEmail(email);
+    	System.out.println(email);
+    	if(result != null) {
+    		return true;
+    	}else {
+
+    		return false;
+    	}
+    }
 
     public User findByUUID(String uuid) throws NotFoundException {
         Optional<User> result = this.repository.findById(UUID.fromString(uuid));
