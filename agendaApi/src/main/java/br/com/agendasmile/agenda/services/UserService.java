@@ -1,6 +1,7 @@
 package br.com.agendasmile.agenda.services;
 
 import br.com.agendasmile.agenda.dto.CreateDentistDto;
+import br.com.agendasmile.agenda.dto.ListDentistDto;
 import br.com.agendasmile.agenda.dto.LoginUserDto;
 import br.com.agendasmile.agenda.exceptions.NotFoundException;
 import br.com.agendasmile.agenda.models.Office;
@@ -8,9 +9,7 @@ import br.com.agendasmile.agenda.models.User;
 import br.com.agendasmile.agenda.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @Service
 public class UserService {
@@ -23,7 +22,7 @@ public class UserService {
     }
     
     public User loginUser(LoginUserDto user) throws Exception{
-    	
+
     	if(user.getEmail() == null || user.getPassword() == null) {
 			throw new Exception("Preencha todos os campos corretamente!");
 		}
@@ -78,5 +77,17 @@ public class UserService {
         user.setOffice(office);
 
         this.repository.save(user);
+    }
+
+    public ArrayList<ListDentistDto> getAllDentistsFromCompany(String companyUUID) {
+        List<User> allDentists = this.repository.getAllDentistsFromCompany(UUID.fromString(companyUUID));
+
+        ArrayList<ListDentistDto> dentistsDtos = new ArrayList<>();
+
+        allDentists.forEach(dentist -> {
+            dentistsDtos.add(new ListDentistDto(dentist));
+        });
+
+        return dentistsDtos;
     }
 }

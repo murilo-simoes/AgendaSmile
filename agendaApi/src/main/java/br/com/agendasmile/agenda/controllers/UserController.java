@@ -1,6 +1,7 @@
 package br.com.agendasmile.agenda.controllers;
 
 import br.com.agendasmile.agenda.dto.CreateDentistDto;
+import br.com.agendasmile.agenda.dto.ListDentistDto;
 import br.com.agendasmile.agenda.dto.LoginUserDto;
 import br.com.agendasmile.agenda.exceptions.NotFoundException;
 import br.com.agendasmile.agenda.models.Office;
@@ -10,10 +11,9 @@ import br.com.agendasmile.agenda.services.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.ArrayList;
 
 @RestController
 public class UserController {
@@ -36,6 +36,17 @@ public class UserController {
             response.setStatus(HttpServletResponse.SC_CREATED);
         } catch (NotFoundException e) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
+    }
+
+    @GetMapping("/api/office/{officeUuid}/dentist")
+    public ResponseEntity<ArrayList<ListDentistDto>> listAllDentists(@PathVariable String officeUuid) {
+        try {
+            this.officeService.getByUUID(officeUuid);
+            ArrayList<ListDentistDto> dentists = this.userService.getAllDentistsFromCompany(officeUuid);
+            return ResponseEntity.ok(dentists);
+        } catch (NotFoundException e) {
+            return ResponseEntity.notFound().build();
         }
     }
     
