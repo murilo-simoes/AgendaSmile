@@ -2,7 +2,7 @@
 
 ## 1. Introdução
 
-Este documento descreve o que foi implementado no projeto AgendaSmile, como executar o MVP e as instruções para testar as funcionalidades de cadastro de usuários e agendamentos.
+Este documento descreve o que foi implementado no projeto AgendaSmile, como executar o software e as instruções para testar as funcionalidades de cadastro de usuários e agendamentos.
 
 ## 2. Implementações
 
