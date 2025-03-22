@@ -78,11 +78,10 @@
         <div class="busca-container">
           <input
             type="text"
-            class="busca-paciente"
-            placeholder="Digite o nome do Médico ou CRM/CRO..."
-            onkeyup="searchTable()"
+            class="search-input"
+            placeholder="Digite o nome do médico ou e-mail..."
           />
-          <button class="busca-btn">
+          <button class="busca-btn" id="search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
           <button
@@ -97,34 +96,30 @@
           <table id="medicosTable">
             <thead>
               <tr>
-                <th>CRM</th>
                 <th>Nome</th>
-                <th>Especialidade</th>
-                <th>Telefone</th>
-                <th>E-mail</th>
+                <th>Sobrenome</th>
+                <th>Email</th>
+                <th>Data de Registro</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody class="datatable-content">
               <tr>
                 <td>12345</td>
                 <td>Dr. João Silva</td>
                 <td>Cardiologia</td>
                 <td>(11) 98765-4321</td>
-                <td>joao.silva@email.com</td>
               </tr>
               <tr>
                 <td>67890</td>
                 <td>Dra. Maria Oliveira</td>
                 <td>Dermatologia</td>
                 <td>(11) 91234-5678</td>
-                <td>maria.oliveira@email.com</td>
               </tr>
               <tr>
                 <td>54321</td>
                 <td>Dr. Carlos Souza</td>
                 <td>Ortopedia</td>
                 <td>(11) 92345-6789</td>
-                <td>carlos.souza@email.com</td>
               </tr>
             </tbody>
           </table>
@@ -134,5 +129,7 @@
 
     <script src="../../index.js"></script>
     <script src="../../lib/functions.js"></script>
+
+    <script src="./medicos.js"></script>
   </body>
 </html>
