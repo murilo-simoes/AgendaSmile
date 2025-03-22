@@ -17,6 +17,7 @@ searchBtn.addEventListener('click', async e => {
     const filterValue = searchInput.value;
     
     const filteredDentists = filterDentists(allDentists, filterValue);
+    console.log(filteredDentists);
     updateDataTableData(filteredDentists)
 });
 
@@ -35,24 +36,25 @@ function fetchAllDentists() {
 }
 
 async function updateDataTableData(dataTableData) {
-    await clearDataTableRows();
-    const rows = [];
-
-    dataTableData.forEach(dentistRow => {
-        const row = document.createElement('tr');
-        columnOrderProperties = ['first_name', 'last_name', 'email', 'created_at'];
-
-        for (const column of columnOrderProperties) {
-            const rowColumn = document.createElement('td');
-            rowColumn.innerHTML = dentistRow[column];
-            row.appendChild(rowColumn);
-        }
-        
-        rows.push(row);
-    });
+    clearDataTableRows().then(() => {
+        const rows = [];
     
-    rows.forEach(row => {
-        dataTableContentContainer.appendChild(row);
+        dataTableData.forEach(dentistRow => {
+            const row = document.createElement('tr');
+            columnOrderProperties = ['first_name', 'last_name', 'email', 'created_at'];
+    
+            for (const column of columnOrderProperties) {
+                const rowColumn = document.createElement('td');
+                rowColumn.innerHTML = dentistRow[column];
+                row.appendChild(rowColumn);
+            }
+            
+            rows.push(row);
+        });
+        
+        rows.forEach(row => {
+            dataTableContentContainer.appendChild(row);
+        });
     });
 }
 
@@ -75,7 +77,7 @@ function clearDataTableRows() {
     return new Promise((resolve) => {
         const rows = dataTableContentContainer.children;
     
-        for (let i = 0; i < rows.length; i++) {
+        for (let i = rows.length - 1; i >= 0; i--) {
             rows.item(i).remove();
         }
 
