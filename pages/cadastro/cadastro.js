@@ -35,7 +35,7 @@ async function cadastrar() {
     return;
   }
 
-  const email_exist = await fetch(`http://localhost:8080/api/user/${email}`, {
+  const email_exist = await fetch(`https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/user/${email}`, {
     method: "POST",
   });
 
@@ -55,7 +55,7 @@ async function cadastrar() {
   };
 
   try {
-    await fetch("http://localhost:8080/api/office", {
+    await fetch("https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/office", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
