@@ -50,12 +50,13 @@ async function criarAgendamento() {
       body: JSON.stringify(body),
     }
   )
-    .then((res) => {
-      if (res.status === 200) {
+    .then(({ status }) => {
+      if (status >= 200 && status < 300) {
         alert("Agendamento criado com sucesso!");
-      } else {
-        alert("Erro ao criar o agendamento.");
+        return;
       }
+
+      alert("Erro ao criar o agendamento.");
     })
     .catch(() => {
       alert("Erro ao criar o agendamento.");
