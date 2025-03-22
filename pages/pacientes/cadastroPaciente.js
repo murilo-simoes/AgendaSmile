@@ -41,12 +41,12 @@ async function cadastrarPaciente() {
       },
       body: JSON.stringify(body),
     })
-      .then((response) => {
-        if (response.status === 200) {
-          alert("Paciente criado com sucesso!");
-        } else {
-          alert("Erro ao criar o paciente.");
+      .then(({ status }) => {
+        if (status >= 200 && status < 300) {
+          alert("Usuário criado com sucesso!");
+          return;
         }
+        alert("Erro ao criar o paciente");
       })
       .catch((err) => {
         alert("Erro ao criar o paciente.");
