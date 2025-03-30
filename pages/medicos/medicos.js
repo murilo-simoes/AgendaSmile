@@ -11,7 +11,7 @@ fetchAllDentists().then(async response => {
     window.alert('Não foi possível obter os dentistas. Tente novamente mais tarde!');
 });
 
-searchBtn.addEventListener('click', async e => {
+searchInput.addEventListener('keyup', e => {
     e.preventDefault();
 
     const filterValue = searchInput.value;

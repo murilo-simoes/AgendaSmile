@@ -26,6 +26,12 @@ O front-end foi desenvolvido como uma interface simples, responsiva e fácil de 
 
 ## 3. Como Executar o Back-end (Java com Docker)
 
+Caso queira simplicidade, apenas entre no link do deploy da aplicação e use normalmente.
+
+link do deploy: https://agenda-smile.vercel.app/
+
+Caso queria executar localmente, siga os seguintes passos:
+
 1. **Clone o repositório** para a sua máquina:
 
    ```bash
