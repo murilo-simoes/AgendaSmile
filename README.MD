@@ -49,14 +49,3 @@ Caso queria executar localmente, siga os seguintes passos:
 ## 4. Como Executar o Front-end
 
 1. **Abra o arquivo `index.html`** diretamente em seu navegador ou use uma ferramenta como o Live Server (VSCode) para testar a aplicação localmente.
-
-## 5. Testando
-
-Atualmente, o back-end e o front-end não estão integrados. Para testar o MVP:
-
-- Utilize uma ferramenta como **Postman** ou **Insomnia** para enviar requisições para o back-end, simulando cadastros de usuários e agendamentos.
-- Para testar a interface do front-end, abra o arquivo `index.html` e preencha os formulários, mas sem funcionalidade de envio, uma vez que a integração com o back-end ainda não foi concluída.
-
-## 6. Próximos Passos
-
-- Integração do front-end com o back-end via chamadas API para permitir que os dados de cadastro e agendamento sejam enviados diretamente para o back-end.
