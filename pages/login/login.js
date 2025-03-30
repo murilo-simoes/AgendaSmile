@@ -33,7 +33,7 @@ async function login() {
   };
 
   try {
-    let response = await fetch("https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/user/login", {
+    let response = await fetch(`${API_BASE_URL}/api/user/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

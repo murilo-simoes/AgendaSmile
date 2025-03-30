@@ -40,16 +40,13 @@ async function criarAgendamento() {
     end_datetime: data_consulta_fim,
   };
 
-  await fetch(
-    `https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/appointment/doctor/${user.id}/patient/${email_paciente}`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    }
-  )
+  await fetch(`${API_BASE_URL}}/${user.id}/patient/${email_paciente}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
     .then(({ status }) => {
       if (status >= 200 && status < 300) {
         alert("Agendamento criado com sucesso!");
