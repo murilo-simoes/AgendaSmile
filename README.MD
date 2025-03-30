@@ -28,8 +28,6 @@ O front-end foi desenvolvido como uma interface simples, responsiva e fácil de 
 
 Caso queira simplicidade, apenas entre no link do deploy da aplicação e use normalmente.
 
-link do deploy: https://agenda-smile.vercel.app/
-
 Caso queria executar localmente, siga os seguintes passos:
 
 1. **Clone o repositório** para a sua máquina:
@@ -38,13 +36,7 @@ Caso queria executar localmente, siga os seguintes passos:
    git clone https://github.com/murilo-simoes/AgendaSmile.git
    ```
 
-2. **Navegue até o diretório do projeto**:
-
-   ```bash
-   cd agendaApi
-   ```
-
-3. **Execute o Docker Compose** para subir os containers do back-end:
+2. **Execute o Docker Compose** para subir os containers do back-end:
 
    ```bash
    docker-compose up --build
@@ -56,13 +48,7 @@ Caso queria executar localmente, siga os seguintes passos:
 
 ## 4. Como Executar o Front-end
 
-1. **Clone o repositório** para a sua máquina:
-
-   ```bash
-   git clone https://github.com/murilo-simoes/AgendaSmile.git
-   ```
-
-2. **Abra o arquivo `index.html`** diretamente em seu navegador ou use uma ferramenta como o Live Server (VSCode) para testar a aplicação localmente.
+1. **Abra o arquivo `index.html`** diretamente em seu navegador ou use uma ferramenta como o Live Server (VSCode) para testar a aplicação localmente.
 
 ## 5. Testando
 
