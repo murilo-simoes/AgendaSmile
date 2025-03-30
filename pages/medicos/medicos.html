@@ -17,15 +17,9 @@
     <nav id="sidebar">
       <div id="sidebar-content">
         <div id="user">
-          <img
-            src="images/2709_R0lVIE5JQyA2MDctNDM.jpg"
-            id="user-avatar"
-            alt="Avatar"
-          />
-
           <p id="user-infos">
-            <span class="item-description"> Nome </span>
-            <span class="item-description"> Sobrenome </span>
+            <span id="name_menu" class="item-description"> </span>
+            <span id="last_name_menu" class="item-description"> </span>
           </p>
         </div>
 
@@ -72,38 +66,36 @@
     </nav>
 
     <main class="main-container">
-
-        <h1>Médicos</h1>
-        <div class="busca-container">
-          <input
-            type="text"
-            class="search-input"
-            placeholder="Digite o nome do médico ou e-mail..."
-          />
-          <button class="busca-btn" id="search-btn">
-            <i class="fa-solid fa-magnifying-glass"></i>
-          </button>
-        </div>
-          <div class="table-container">
-            <table id="medicosTable">
-              <thead>
-                <tr>
-                  <th>Nome</th>
-                  <th>Sobrenome</th>
-                  <th>Email</th>
-                  <th>Data de Registro</th>
-                </tr>
-              </thead>
-              <tbody class="datatable-content">
-              </tbody>
-            </table>
+      <h1>Médicos</h1>
+      <div class="busca-container">
+        <input
+          type="text"
+          class="search-input"
+          placeholder="Digite o nome do médico ou e-mail..."
+        />
+        <button class="busca-btn" id="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
       </div>
-        <button
-            class="add-btn"
-            onclick="window.location.href='cadastroMedico.html'"
-          >
-            Cadastrar novo médico
-          </button>
+      <div class="table-container">
+        <table id="medicosTable">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>Email</th>
+              <th>Data de Registro</th>
+            </tr>
+          </thead>
+          <tbody class="datatable-content"></tbody>
+        </table>
+      </div>
+      <button
+        class="add-btn"
+        onclick="window.location.href='cadastroMedico.html'"
+      >
+        Cadastrar novo médico
+      </button>
     </main>
 
     <script src="../../index.js"></script>

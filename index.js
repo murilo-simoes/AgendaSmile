@@ -41,7 +41,7 @@ async function criarAgendamento() {
   };
 
   await fetch(
-    `https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/appointment/doctor/${user.id}/patient/${email_paciente}`,
+    `${API_BASE_URL}/api/appointment/doctor/${user.id}/patient/${email_paciente}`,
     {
       method: "POST",
       headers: {
