@@ -34,7 +34,7 @@ async function cadastrarPaciente() {
   };
 
   try {
-    await fetch(`${API_BASE_URL}/api/office/${user.office.id}/patient`, {
+    await fetch(`https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/office/${user.office.id}/patient`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
