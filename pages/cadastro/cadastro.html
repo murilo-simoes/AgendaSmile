@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cadastro.css" />
+    <title>Formulário de cadastro</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-image">
+        <img src="../../assets/images/undraw_date-picker_qe47.svg" alt="" />
+      </div>
+      <div class="form">
+        <div>
+          <div class="form-header">
+            <div class="tittle">
+              <h1>Cadastre-se</h1>
+            </div>
+            <div class="login-button">
+              <button><a href="../login/index.html">Entrar</a></button>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <div class="input-box">
+              <label for="firstname">Primeiro nome</label>
+              <input
+                id="firstname"
+                type="text"
+                name="firstname"
+                placeholder="Digite seu primeiro nome"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="lastname">Sobrenome</label>
+              <input
+                id="lastname"
+                type="text"
+                name="lastname"
+                placeholder="Digite seu sobrenome"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="email">Digite o email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                placeholder="Digite o email"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="password">Digite sua senha</label>
+              <input
+                id="password"
+                type="password"
+                name="password"
+                placeholder="Digite sua senha"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="password">Confirme sua senha</label>
+              <input
+                id="confirmpassword"
+                type="password"
+                name="confirmpassword"
+                placeholder="Confirme sua senha"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <label for="text">Nome do consultório</label>
+              <input
+                id="office"
+                type="text"
+                name="office"
+                placeholder="Seu consultório"
+                required
+              />
+            </div>
+          </div>
+          <div class="continue-button">
+            <button onclick="cadastrar()">Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="cadastro.js"></script>
+  <script src="../../lib/functions.js"></script>
+</html>

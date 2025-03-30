@@ -2,7 +2,7 @@ async function carregarAgendamentos() {
   const user = JSON.parse(localStorage.getItem("user"));
 
   const response = await fetch(
-    `https://3c71-2804-7f0-7f80-dba-5839-f953-62a9-c4a6.ngrok-free.app/api/appointment/office/${user.office.id}`,
+    `${API_BASE_URL}/api/appointment/office/${user.office.id}`,
     {
       method: "GET",
     }
