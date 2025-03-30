@@ -71,10 +71,9 @@
       </div>
     </nav>
 
-    <main>
-      <div class="content">
-        <h1>Médicos</h1>
+    <main class="main-container">
 
+        <h1>Médicos</h1>
         <div class="busca-container">
           <input
             type="text"
@@ -84,29 +83,27 @@
           <button class="busca-btn" id="search-btn">
             <i class="fa-solid fa-magnifying-glass"></i>
           </button>
-          <button
+        </div>
+          <div class="table-container">
+            <table id="medicosTable">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Sobrenome</th>
+                  <th>Email</th>
+                  <th>Data de Registro</th>
+                </tr>
+              </thead>
+              <tbody class="datatable-content">
+              </tbody>
+            </table>
+      </div>
+        <button
             class="add-btn"
             onclick="window.location.href='cadastroMedico.html'"
           >
-            <i class="fa-solid fa-user-plus"></i>
+            Cadastrar novo médico
           </button>
-        </div>
-
-        <div class="table-container">
-          <table id="medicosTable">
-            <thead>
-              <tr>
-                <th>Nome</th>
-                <th>Sobrenome</th>
-                <th>Email</th>
-                <th>Data de Registro</th>
-              </tr>
-            </thead>
-            <tbody class="datatable-content">
-            </tbody>
-          </table>
-        </div>
-      </div>
     </main>
 
     <script src="../../index.js"></script>

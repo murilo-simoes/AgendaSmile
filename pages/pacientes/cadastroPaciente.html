@@ -11,15 +11,9 @@
     <nav id="sidebar">
         <div id="sidebar-content">
             <div id="user">
-                
-
                 <p id="user-infos">
-                    <span id="name_menu" class="item-description">
-                        
-                    </span>
-                    <span id="last_name_menu" class="item-description">
-                        
-                    </span>
+                    <span id="name_menu" class="item-description"></span>
+                    <span id="last_name_menu" class="item-description"></span>
                 </p>
             </div>
 
@@ -27,125 +21,106 @@
                 <li class="side-item active">
                     <a href="../../index.html">
                         <i class="fa-solid fa-calendar-days"></i>
-                        <span class="item-description">
-                            Agendar uma consulta
-                        </span>
-
+                        <span class="item-description">Agendar uma consulta</span>
                     </a>
                 </li>
-
                 <li class="side-item">
                     <a href="../medicos/medicos.html">
                         <i class="fa-solid fa-user-doctor"></i>
-                        <span class="item-description">
-                            Médicos
-                        </span>
+                        <span class="item-description">Médicos</span>
                     </a>
                 </li>
-
                 <li class="side-item">
                     <a href="#">
                         <i class="fa-solid fa-bell"></i>
-                        <span class="item-description">
-                            Notificações
-                        </span>
+                        <span class="item-description">Notificações</span>
                     </a>
                 </li>
-
                 <li class="side-item">
                     <a href="../agendamentos/agendamentos.html">
                         <i class="fa-solid fa-calendar-check"></i>
-                        <span class="item-description">
-                            Meus agendamentos
-                        </span>
+                        <span class="item-description">Meus agendamentos</span>
                     </a>
                 </li>
-
             </ul>
-            <button id="open-btn">
+            <button id="open-btn" aria-label="Abrir/fechar menu">
                 <i id="open-btn-icon" class="fa-solid fa-chevron-right"></i>
             </button>
-
         </div>
 
         <div id="logout">
             <button id="logout-btn" onclick="deslogar()">
                 <i class="fa-solid fa-right-from-bracket"></i>
-                <span class="item-description">
-                    Logout
-                </span>
-
+                <span class="item-description">Logout</span>
             </button>
         </div>
     </nav>
 
-    <main>
-        <h1>Novo cadastro:</h1>
-            <nav id="agende-uma-consulta">
-            <div class="add-medico">
-                <div class="input-box-add">
-                    <label for="iname" class="nome">Nome:</label><br>
-                    <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="nome">
+    <main class="main-container">
+        <div class="content">
+            <h1>Novo cadastro:</h1>
+            <div class="content-agenda">
+                <form id="cadastro-paciente-form">
+                    <div class="add-medico">
+                        <div class="input-box-add">
+                            <label for="nome">Nome:</label>
+                            <div class="busca-container">
+                                <input type="text" id="nome" name="nome" class="busca-paciente" required>
+                            </div>
+                        </div>
+                        <div class="input-box-add">
+                            <label for="sobrenome">Sobrenome:</label>
+                            <div class="busca-container">
+                                <input type="text" id="sobrenome" name="sobrenome" class="busca-paciente" required>
+                            </div>
+                        </div>
+                        <div class="input-box-add">
+                            <label for="cpf">Digite o CPF:</label>
+                            <div class="busca-container">
+                                <input type="text" id="cpf" name="cpf" placeholder="Apenas dígitos" class="busca-paciente" required>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="input-box-add">
-                    <label for="iname" class="nome">Sobrenome:</label><br>
-                    <div class="busca-container">
-                        <input type="text" name="nome" class="busca-paciente" id="sobrenome">
+
+                    <div class="add-medico">
+                        <div class="input-box-add">
+                            <div class="input-box">
+                                <label for="data">Data de nascimento:</label>
+                                <input type="date" id="data" name="data_nascimento" class="busca-paciente" required>
+                            </div>
+                        </div>
+                        <div class="input-box-add">
+                            <label for="numero">Celular:</label>
+                            <div class="busca-container">
+                                <input type="tel" id="numero" name="celular" placeholder="DDD + Número sem separação" class="busca-paciente" required>
+                            </div>
+                        </div>
+                        <div class="input-box-add">
+                            <label for="email">Digite o email:</label>
+                            <div class="busca-container">
+                                <input type="email" id="email" name="email" class="busca-paciente" required>
+                            </div>
+                        </div>
+                        <div class="input-box-add lista-box">
+                            <label for="genero">Gênero:</label>
+                            <select id="genero" name="genero" required>
+                                <option value="">Selecione</option>
+                                <option value="Masculino">Masculino</option>
+                                <option value="Feminino">Feminino</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="input-box-add">
-                    <label for="iname" class="nome">Digite o CPF:</label><br>
-                    <div class="busca-container">
-                    <input type="text" name="nome" placeholder="Apenas digitos" class="busca-paciente" id="cpf">
-                </div>
-            </div>
 
+                    <button type="submit" class="cadastrar-btn">CADASTRAR</button>
+                </form>
 
-
+                <div class="lista" id="lista"></div>
             </div>
-
-            <div class="add-medico">
-            <div class="input-box-add">
-                <div class="input-box">
-                    <label for="idate">Data de nascimento:</label><br>
-                    <input type="date" class="date" id="data">
-                </div>
-            </div>
-                <div class="input-box-add">
-                <label for="iname" class="nome">Celular:</label><br>
-                <div class="busca-container">
-                    <input type="text" name="nome" placeholder="DDD + Numero sem separação" class="busca-paciente" id="numero">
-                </div>
-            </div>
-            <div class="input-box-add">
-                <label for="iname" class="nome">Digite o email:</label><br>
-                <div class="busca-container">
-                    <input type="text" name="nome" class="busca-paciente" id="email">
-                </div>
-            </div>
-                <div class="lista-box">
-                    <label>Genero: </label><br>
-                    <select name="genero" id="genero">
-                        <option value="0">           </option>
-                        <option value="Masculino"> Masculino </option>
-                        <option value="Feminino"> Feminino </option>
-                    </select>
-                </div>
-
         </div>
-        <button class="cadastrar-btn " onclick="cadastrarPaciente()">CADASTRAR</button>
-
-            <div class="lista" id="lista">
-
-            </div>
-
-
     </main>
 
     <script src="../../index.js"></script>
-    <script src="../../lib/functions.js"> </script>
-    <script src="cadastroPaciente.js"> </script>
+    <script src="../../lib/functions.js"></script>
+    <script src="cadastroPaciente.js"></script>
 </body>
 </html>

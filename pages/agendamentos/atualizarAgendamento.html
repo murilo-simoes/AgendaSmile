@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="../global.css">
+    <link rel="stylesheet" href="../../global.css">
     <title>Reagendamento</title>
 </head>
 <body data-page="agendar">
@@ -79,8 +79,9 @@
         </div>
     </nav>
 
-    <main>
-        <h1>Reagendamento de Consulta:</h1>
+    <main class="main-container">
+        <h1>Reagendamento de Consulta</h1>
+        <div class="container-bottom">
                 <div class="input-box">
                     <label for="idate">Selecione a data da consulta:</label><br>
                     <input type="date" class="date" id="idate">
@@ -105,10 +106,9 @@
                         <option value="implante">Implante</option>
                     </select>
                 </div>
-
+                <button class="cadastrar-btn ">AGENDAR</button>
 
             </div>
-            <button class="cadastrar-btn ">AGENDAR</button>
             <div class="lista" id="lista">
 
             </div>
