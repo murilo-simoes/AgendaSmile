@@ -1,15 +1,41 @@
-services: 
+version: '3.8'
+services:
   mysql:
-    image: mysql:8.4
+    image: mysql:8.0
     restart: always
     container_name: mysql
     environment:
       - MYSQL_DATABASE=db_agenda
-      - MYSQL_ROOT_PASSWORD=admin
+      - MYSQL_ROOT_PASSWORD=admin 
+
     ports:
       - '3306:3306'
     networks:
       - my-network
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build:
+      context: ./agendaApi  
+    container_name: spring_app
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:mysql://mysql:3306/db_agenda
+      - SPRING_DATASOURCE_USERNAME=root
+      - SPRING_DATASOURCE_PASSWORD=admin
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.MySQLDialect
+      - SERVER_PORT=8080
+    ports:
+      - '8080:8080'
+    depends_on:
+      - mysql
+    networks:
+      - my-network
+
 networks:
   my-network:
     driver: bridge
+
+volumes:
+  mysql_data:
