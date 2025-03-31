@@ -41,6 +41,10 @@ Caso queria executar localmente, siga os seguintes passos:
    ```bash
    docker-compose up --build
    ```
+3. **Verifique se ambos os containers estão rodando corretamente no Docker
+
+  - mysql 
+  - spring_app 
 
    Isso criará os containers e inicializará o servidor do back-end.
 
