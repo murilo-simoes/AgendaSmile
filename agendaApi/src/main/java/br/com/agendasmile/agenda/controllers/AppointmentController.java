@@ -48,4 +48,6 @@ public class AppointmentController {
     public List<Appointment> list(@PathVariable String officeId){
     	return this.appointmentService.getAllAppointments(officeId);
     }
+    
+
 }

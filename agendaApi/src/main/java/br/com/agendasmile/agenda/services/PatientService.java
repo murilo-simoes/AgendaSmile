@@ -61,4 +61,16 @@ public class PatientService {
 
         return result;
    }
+    
+    public Patient findByEmailNoException(String email) {
+        Patient result = this.repository.findByEmail(email);
+
+        return result;
+   }
+    
+    public Patient findByCpf(String cpf) {
+        Patient result = this.repository.findByCpf(cpf);
+
+        return result;
+   }
 }

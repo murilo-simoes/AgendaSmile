@@ -3,6 +3,7 @@ package br.com.agendasmile.agenda.controllers;
 import br.com.agendasmile.agenda.dto.CreatePatientDto;
 import br.com.agendasmile.agenda.exceptions.NotFoundException;
 import br.com.agendasmile.agenda.models.Office;
+import br.com.agendasmile.agenda.models.Patient;
 import br.com.agendasmile.agenda.services.OfficeService;
 import br.com.agendasmile.agenda.services.PatientService;
 import jakarta.servlet.http.HttpServletResponse;
@@ -45,5 +46,27 @@ public class PatientController {
         }
 
         response.setStatus(HttpServletResponse.SC_CREATED);
+    }
+    
+    @PostMapping("/api/patient/cpf/{cpf}")
+    public boolean findPatientCpf(@RequestParam String cpf) {
+    	Patient patient = this.patientService.findByCpf(cpf);
+    	
+    	if(patient != null) {
+    		return true;
+    	}else {
+    		return false;
+    	}
+    }
+    
+    @PostMapping("/api/patient/email/{email}")
+    public boolean findPatientEmail(@RequestParam String email) {
+    	Patient patient = this.patientService.findByEmailNoException(email);
+    	
+    	if(patient != null) {
+    		return true;
+    	}else {
+    		return false;
+    	}
     }
 }

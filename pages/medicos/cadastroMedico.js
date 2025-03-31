@@ -1,48 +1,50 @@
-const createDentistForm = document.querySelector('#create-dentist-form');
+const createDentistForm = document.querySelector("#create-dentist-form");
 
-createDentistForm.addEventListener('submit', e => {
-    e.preventDefault();
+createDentistForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-    const formData = new FormData(createDentistForm);
-    const requestBody = createJsonWithFormFields(formData);
-    const { office } = retrieveLoggedUserData();
-    const jsonRequestBody = JSON.stringify(requestBody);
+  const formData = new FormData(createDentistForm);
+  const requestBody = createJsonWithFormFields(formData);
+  const { office } = retrieveLoggedUserData();
+  const jsonRequestBody = JSON.stringify(requestBody);
+  console.log(jsonRequestBody);
+  sendData(
+    `${API_BASE_URL}/api/office/${office.id}/dentist`,
+    jsonRequestBody
+  ).then(({ status }) => {
+    if (status >= 200 && status < 300) {
+      window.alert("Usuário criado com sucesso!");
+      return;
+    }
 
-    sendData(
-        `${API_BASE_URL}/office/${office.id}/dentist`,
-        jsonRequestBody
-    ).then(({ status }) => {
-        if (status >= 200 && status < 300) {
-            window.alert('Usuário criado com sucesso!');
-            return;
-        }
-
-        window.alert('Não foi possível criar o usuário!');
-    })
+    window.alert("Não foi possível criar o usuário!");
+  });
 });
 
 function createJsonWithFormFields(formData) {
-    const json = {};
+  const json = {};
 
-    formData.forEach((value, key) => {
-        json[key] = value;
-    });
+  formData.forEach((value, key) => {
+    json[key] = value;
+  });
 
-    return json;
+  return json;
 }
 
 function sendData(endpoint, bodyData) {
-    return new Promise((resolve, reject) => {
-        fetch(endpoint, {
-            method: 'POST',
-            body: bodyData,
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        }).then(response => {
-            resolve(response);
-        }).catch(error => {
-            reject(error);
-        });
-    });
+  return new Promise((resolve, reject) => {
+    fetch(endpoint, {
+      method: "POST",
+      body: bodyData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        resolve(response);
+      })
+      .catch((error) => {
+        reject(error);
+      });
+  });
 }

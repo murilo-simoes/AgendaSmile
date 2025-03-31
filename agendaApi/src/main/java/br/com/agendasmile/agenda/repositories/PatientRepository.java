@@ -9,4 +9,6 @@ import java.util.UUID;
 
 public interface PatientRepository extends CrudRepository<Patient, UUID> {
 	Patient findByEmail(String email);
+	
+	Patient findByCpf(String cpf);
 }

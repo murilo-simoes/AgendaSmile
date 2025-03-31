@@ -57,9 +57,11 @@ async function criarAgendamento() {
       }
 
       alert("Erro ao criar o agendamento.");
+      return;
     })
     .catch(() => {
       alert("Erro ao criar o agendamento.");
+      return;
     });
 }
 
